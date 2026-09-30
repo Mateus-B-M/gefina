@@ -12,9 +12,9 @@
         }
     },
     "linter":{
-        "enable":true,
+        "enabled": true,
         "rules":{
-            "recommeded":true
+            "recommended":true
         }
     }
 }
