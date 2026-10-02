@@ -1,10 +1,14 @@
 {
-    "name": "gefina",
-    "version": "0.0.0",
-    "description": "Sistema de Gestão de Contas a receber.",
-    "author": "Mateus de Brito",
-    "scripts" : { "check" : "biomejs/biome ./"},
-    "devDependencies": {
-        "@biomejs/biome": "2.5.15"
-    }
+  "name": "gefina",
+  "version": "0.0.0",
+  "description": "Sistema de Gestão de Contas a receber.",
+  "author": "Mateus de Brito",
+  "scripts": {
+    "check": "biomejs/biome ./",
+    "fix": "biome check --write ./",
+    "fix:unsafe": "biome check --write --unsafe ./"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15"
+  }
 }
