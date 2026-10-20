@@ -1,4 +1,4 @@
-import type {Invoice} from './invoiceType.tsx';
+import type { Invoice } from './invoiceType.ts';
 import {
     situationLabel,
     formatCurrency,
@@ -9,7 +9,7 @@ interface InvoiceRowProps {
     invoice: Invoice;
 }
 
-export default function ImportRow(props: InvoiceRowProps){
+export default function InvoiceRow(props: InvoiceRowProps) {
     return <tr>
         <td>{props.invoice.customer.name}</td>
         <td>{formatCurrency(props.invoice.amount)}</td>
