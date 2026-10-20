@@ -32,10 +32,9 @@ useEffect(() => {
 
     }
     
-    getDashboard();
+    setloading(false);
 }
 
-  
 
   getDashboard();
     
