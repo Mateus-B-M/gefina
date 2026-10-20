@@ -6,6 +6,8 @@ import pool from './database.ts';
 
 import invoices from './invoice.route.ts';
 
+import dashboard from './dashboard.route.ts';
+
 const app = express();
 
 const dist = path.join(import.meta.dirname, '..', 'web', 'dist');
@@ -34,8 +36,17 @@ app.get('/api/health', async (_request, response) => {
 });
 
 app.use('/api/invoices', invoices);
+app.use('/api/dashboard', dashboard)
 
 app.use(express.static(dist));
+
+app.use((request, response, next) => {
+  if(request.url.startsWith('/api')){
+    next();
+    return;
+  }
+  response.sendFile(path.join(dist, 'index.html'));
+})
 
 app.use((_request, response) => {
   response.status(404).json({ message: 'Recurso não encontrado.' });
