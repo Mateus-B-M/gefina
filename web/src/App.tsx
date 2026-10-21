@@ -12,19 +12,23 @@ export default function App() {
     return <div>
 
         <BrowserRouter>
+        <aside> 
             <nav>
-                <Link to='/'>Painel Inicial</Link>
-                <Link to='/faturas'>Faturas</Link>
+                <ul>
+                    <li><Link to='/'>Painel Inicial</Link></li>
+                    <li> <Link to='/faturas'>Faturas</Link></li>
+                </ul>
             </nav>
+        </aside>
 
+        <main>
             <Routes>
                 <Route path='/' element={<DashboardPage />} />
                 <Route path='/faturas' element={<InvoicePage />} />
             </Routes>
+        </main>   
+            
 
         </BrowserRouter>
-
     </div>
-
-
 }
