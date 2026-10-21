@@ -16,15 +16,11 @@ export default function App() {
                 <Link to='/'>Painel Inicial</Link>
                 <Link to='/faturas'>Faturas</Link>
             </nav>
-
             <Routes>
                 <Route path='/' element={<DashboardPage />} />
                 <Route path='/faturas' element={<InvoicePage />} />
             </Routes>
 
         </BrowserRouter>
-
     </div>
-
-
 }
