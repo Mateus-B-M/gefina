@@ -5,8 +5,8 @@
   --color-border: #2a2f3a;
   --color-text: #e8eaed;
   --color-text-muted: #9aa1ae;
-  --color-primary: #6e56
-  --color-paid: #3fb950;
+  --color-primary: #6e56;
+  --color-paid: #018601;
   --color-pending: #d29922;
   --color-overdue: #f85149;
 
@@ -55,4 +55,13 @@ a{
 }
 .numeric {
   font-variant-numeric: tabular-nums;
+}
+.situation-paid{
+color:var(--color-paid);
+}
+.situation-pending{
+color:var(--color-pending);
+}
+.situation-overdue{
+color:var(--color-overdue);
 }
