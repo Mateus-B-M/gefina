@@ -10,7 +10,7 @@ import {formatCurrency} from './utils.ts';
 export default function DashboardPage() {
  const [dashboard, setDashboard ] = useState<null | Dashboard>(null);
  const [error, setError] = useState<string | null>(null)
- const[loading, setloading] = useState(true);
+ const [loading, setloading] = useState(true);
 
  
 useEffect(() => {
@@ -47,15 +47,15 @@ useEffect(() => {
  return <>
     <h1>Painel Inicial</h1>
 
-    <div>
+    <div className='summary-cards'>
         <SummaryCard label='Total Recebido:' value={formatCurrency(dashboard.totals.paid)}/>
-        <SummaryCard label='Total Pendente:' value={formatCurrency(dashboard?.totals.pending)}/>
+        <SummaryCard label='Total Pendente:' value={formatCurrency(dashboard.totals.pending)}/>
         <SummaryCard label='Faturas:' value={String(dashboard.totals.invoiceCount)}/>
         <SummaryCard label='Clientes' value={String(dashboard.totals.customerCount)}/>
         </div>
  
-
- <InvoiceSummaryTable
+<div className='summary-tables'> 
+  <InvoiceSummaryTable
     title='Faturas recentes'
     dateLabel='Emissão'
     invoices={dashboard.recentInvoices}
@@ -67,5 +67,7 @@ useEffect(() => {
     invoices={dashboard.overdueInvoices}
     date={(invoice) => invoice.dueDate}
  />
+ </div>
+
  </>;
 }
