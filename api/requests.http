@@ -9,8 +9,11 @@ GET {{host}}/api/dashboard
 ### Buscar faturas
 GET {{host}}/api/invoices
 
-### Buscar fatura pelo identificador
+### Buscar fatura por identificador
 GET {{host}}/api/invoices/1
+
+### Buscar fatura por identificador inválido
+GET {{host}}/api/invoices/abc
 
 ### Criar fatura
 POST {{host}}/api/invoices
@@ -38,5 +41,5 @@ Content-Type: application/json
 
 ### Deletar fatura
 DELETE {{host}}/api/invoices/182
-Content-Type: application/jsos
+Content-Type: application/json
 

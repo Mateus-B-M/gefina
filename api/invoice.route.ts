@@ -10,6 +10,14 @@ import {
 
 const router = Router();
 
+function parseId(value: string): number | undefined{
+  const id = Number(value);
+
+  if (!Number.isInteger || id < 1) return undefined;
+
+  return id;
+}
+
 router.get('/', async (_request, response) => {
   const invoices = await findAllInvoices();
 
@@ -17,10 +25,18 @@ router.get('/', async (_request, response) => {
 });
 
 router.get('/:id', async (request, response) => {
-   const id = Number(request.params.id);
+   const id = parseId(request.params.id);
   
-    const invoice = await findInvoiceById(id);
-  
+    if (!id) {
+      response.status(400).json({error:{
+        status: 400,
+        message: 'Indentificador inválido.'
+      }});
+      return;
+    }
+
+   const invoice = await findInvoiceById(id);
+
     if (!invoice) response.status(404).json({ error: {
       status: 404,
       message: 'Fatura não encontrada.'
@@ -39,8 +55,18 @@ router.post('/', async (request, response) => {
 });
 
 router.put('/:id', async (request, response) => {
+  const id = parseId(request.params.id);
+  
+    if (!id) {
+      response.status(400).json({error:{
+        status: 400,
+        message: 'Indentificador inválido.'
+      }});
+      return;
+    }
+
   const invoice = await modifyInvoice(
-      Number(request.params.id),
+      id,
       request.body
     );
     if (!invoice) response.status(404).json({ error:{
@@ -51,7 +77,17 @@ router.put('/:id', async (request, response) => {
 });
 
 router.delete('/:id', async (request, response) => {
-   const deleted = await removeInvoice(Number(request.params.id));
+  const id = parseId(request.params.id);
+  
+    if (!id) {
+      response.status(400).json({error:{
+        status: 400,
+        message: 'Indentificador inválido.'
+      }});
+      return;
+    }
+
+   const deleted = await removeInvoice(id);
     if (!deleted) response.status(404).json({ error:{
       status: 404,
       message: 'Fatura não encontrada.'
