@@ -1,3 +1,5 @@
+import handleError from './error.middleware.ts';
+
 import express from 'express';
 
 import path from 'node:path';
@@ -10,13 +12,15 @@ import dashboard from './dashboard.route.ts';
 
 const app = express();
 
+app.use(express.json());//pega requisiçao e transforma em json
+
 const dist = path.join(import.meta.dirname, '..', 'web', 'dist');
 
-app.use((request, _response, next) => {
+app.use((request, _response, next) => {             //middleware
   console.log(`${request.method} ${request.url}`);
   next();
 });
-
+       //end point   ,         função
 app.get('/api/health', async (_request, response) => {
   try {
     const connect = await pool.query('SELECT datname FROM pg_database WHERE oid = 5;');
@@ -48,8 +52,10 @@ app.use((request, response, next) => {
   response.sendFile(path.join(dist, 'index.html'));
 })
 
-app.use((_request, response) => {
+app.use((_request, response) => {           //middleware
   response.status(404).json({ message: 'Recurso não encontrado.' });
 });
+
+app.use(handleError);
 
 app.listen(Number(process.env.PORT) || 3000);
