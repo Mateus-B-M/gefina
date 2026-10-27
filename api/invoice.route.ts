@@ -98,7 +98,7 @@ router.delete('/:id', async (request, response) => {
     }});
     response.status(204).end();
   }catch (error){
-    console.error(error);
+    console.error(error)
 
     response.status(500).json({error:{
       status: 500,
