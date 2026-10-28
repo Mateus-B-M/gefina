@@ -10,9 +10,9 @@ import  fs  from 'node:fs';
 import pool from './database.ts';
 
 import invoices from './invoice.route.ts';
+import customers from './customer.route.ts' /////////////////////////////////////////////////////////////////
 
 import dashboard from './dashboard.route.ts';
-
 const app = express();
 
 app.use(express.json());//pega requisiçao e transforma em json
@@ -43,7 +43,8 @@ app.get('/api/health', async (_request, response) => {
 });
 
 app.use('/api/invoices', invoices);
-app.use('/api/dashboard', dashboard)
+app.use('/api/customers', customers);
+app.use('/api/dashboard', dashboard);
 
 app.use(express.static(dist));
 
