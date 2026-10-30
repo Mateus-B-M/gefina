@@ -32,7 +32,8 @@ export default function InvoiceForm(props: InvoiceFormProps) {
 
     return <form onSubmit={handleSubmit}>
         <h2>{!props.invoice ? 'Criar fatura' : 'Editar fatura'}</h2>
-        <div>
+
+        <div className = 'field'>
             <label htmlFor='customer'>Cliente</label>
             <select id='customer' value={customerId} onChange={(event) => setCustomerId(event.target.value)}>
                 <option>
@@ -45,7 +46,7 @@ export default function InvoiceForm(props: InvoiceFormProps) {
                 })}
             </select>
         </div>
-        <div>
+        <div className = 'field'>
             <label htmlFor='amount'>Valor</label>
             <input
                 id='amount'
@@ -56,14 +57,16 @@ export default function InvoiceForm(props: InvoiceFormProps) {
                 required
             />
         </div>
-        <div>
+
+        <div className='horizontal-fields'>
+            <div className = 'field'>
             <label htmlFor="status">Situação</label>
             <select id="status" value={status} onChange={(event) => setStatus(event.target.value as InvoiceStatus)}>
                 <option value="pending">Pendente</option>
                 <option value="paid">Paga</option>
             </select>
-        </div>
-        <div>
+            </div>
+            <div className = 'field'>
             <label htmlFor='issueDate'>Emissão</label>
             <input 
                 id='issueDate'
@@ -72,8 +75,8 @@ export default function InvoiceForm(props: InvoiceFormProps) {
                 onChange = {(event) => setIssueDate(event.target.value)}
                 required
             />
-        </div>
-        <div>
+            </div>
+            <div className = 'field'>
             <label htmlFor='dueDate'>Vencimento</label>
             <input 
                 id='dueDate'
@@ -82,22 +85,28 @@ export default function InvoiceForm(props: InvoiceFormProps) {
                 onChange = {(event) => setDueDate(event.target.value)}
                 required
             />
+            </div>
         </div>
+        
 
         {!props.error ? null : <p>{props.error}</p>}
-
-        <div>
-            {!props.invoice ? null : <button 
+{/* ///////////////////////precisa ser mexido */}
+        <div className='form-actions'>
+            {!props.invoice ? null : 
+            <button 
+                className='button-danger'
                 type='button'
                 disabled={props.busy}
                 onClick={props.onDelete}
             >Excluir</button>}
             <button 
+                className='button-secondary'
                 type='button'
                 disabled={props.busy}
                 onClick={props.onCancel}
             >Cancelar</button>
             <button 
+                className='button-primary'
                 type='submit'
                 disabled={props.busy}
             >{props.busy ? 'Salvando...' : 'Salvar'}</button>
