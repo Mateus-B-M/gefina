@@ -3,6 +3,7 @@ import InvoiceRow from './InvoiceRow.tsx';
 
 interface InvoiceTableProps {
     invoices: Invoice[];
+    edit: (invoice: Invoice) => void;
 }
 
 export default function InvoiceTable(props: InvoiceTableProps) {
@@ -14,6 +15,7 @@ export default function InvoiceTable(props: InvoiceTableProps) {
                 <th  className='numeric-date'>Data de Emissão</th>
                 <th  className='numeric-date'>Data de Vencimento</th>
                 <th>Situação</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +23,7 @@ export default function InvoiceTable(props: InvoiceTableProps) {
                 <InvoiceRow
                     key={invoice.id}
                     invoice={invoice}
+                    edit={props.edit}
                 />
             ))}
         </tbody>
