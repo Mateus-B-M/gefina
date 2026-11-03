@@ -81,7 +81,7 @@ a{
 }
 .brand{
   font-size: var(--text-xl);
-  font-size: 600;
+  font-weight: 600;
 }
 .menu ul{
   display:flex;
@@ -156,6 +156,11 @@ th, td {
   border-bottom: 1px solid var(--color-border);
   padding: var(--space-3);
 }
+
+.td-button{
+  text-align: center;
+}
+
 .numeric {
   font-variant-numeric: tabular-nums;
 }
@@ -192,6 +197,7 @@ color:var(--color-overdue);
   border-radius: var(--radius-dialog);
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+  margin: auto;
 }
 
 .invoice-modal::backdrop{
@@ -234,15 +240,26 @@ form {
   width: 100%;
 }
 
+.confirm-form{
+  display:flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* deixa os botoes em bom tamanho, ocupando todo o espaço e alinhado à margem */
+.confirm-form button{ 
+  flex-grow: 1;
+}
+
 input, select, button{
   font-family: inherit;
   font-size: var(--text-base);
   border-radius: var(--radius-control);
 }
 
-input: focus-visible,
-select: focus-visible,
-button: focus-visible {
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }

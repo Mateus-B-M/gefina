@@ -82,6 +82,7 @@ export default function InvoiceForm(props: InvoiceFormProps) {
                 id='dueDate'
                 type='date' 
                 value={dueDate}
+                min={issueDate}
                 onChange = {(event) => setDueDate(event.target.value)}
                 required
             />
@@ -89,7 +90,7 @@ export default function InvoiceForm(props: InvoiceFormProps) {
         </div>
         
 
-        {!props.error ? null : <p>{props.error}</p>}
+        {!props.error ? null : <p className='form-error'>{props.error}</p>}
 {/* ///////////////////////precisa ser mexido */}
         <div className='form-actions'>
             {!props.invoice ? null : 
@@ -110,6 +111,20 @@ export default function InvoiceForm(props: InvoiceFormProps) {
                 type='submit'
                 disabled={props.busy}
             >{props.busy ? 'Salvando...' : 'Salvar'}</button>
+        </div>
+
+        <div className='confirm-form'>
+            <p>A excluusão é definitiva e não pode seer desfeita. Deseja prosseguir? </p>
+            <button
+            className='button-secondary'
+            type='button'
+            disabled={props.busy}
+            >Não</button>
+            <button
+            className='button-danger'
+            type='button'
+            disabled={props.busy}
+            >Sim</button>
         </div>
     </form>
 }
