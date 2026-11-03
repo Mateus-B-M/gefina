@@ -55,6 +55,7 @@ export default function InvoiceForm(props: InvoiceFormProps) {
             <label htmlFor='amount'>Valor</label>
             <input
                 id='amount'
+                value={amount}
                 type='number'
                 step='0.01'
                 min='0.01'

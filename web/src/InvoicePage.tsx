@@ -149,7 +149,7 @@ export default function InvoicePage() {
       onDelete={() => setConfirmDelete(true)}
       confirmDelete={confirmDelete}
       setConfirmDelete={setConfirmDelete}
-      confirm={confirm}
+      confirm={confirmDel}
       onCancel={closeModal}
       onSubmit={submit}
       busy={busy}
