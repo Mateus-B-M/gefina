@@ -1,11 +1,12 @@
 import { useState, type SetStateAction, type SubmitEvent} from "react"
-import type { Invoice, InvoiceInput, InvoiceStatus } from './invoiceType.ts'
+import type { Invoice, InvoiceInput, InvoiceStatus, InvoiceFieldErrors } from './invoiceType.ts'
 import type { CustomerOption } from "./customerType.ts";
 
 interface InvoiceFormProps {
     invoice: Invoice | null;
     customers: CustomerOption[];
     error: string | null;
+    fieldErrors: InvoiceFieldErrors;
     onDelete: () => void;
     confirmDelete: boolean;
     setConfirmDelete: React.Dispatch<SetStateAction<boolean>>; //novo React.Dispatch
@@ -16,7 +17,7 @@ interface InvoiceFormProps {
 }
 
 export default function InvoiceForm(props: InvoiceFormProps) {
-    const [customerId, setCustomerId] = useState(!props.invoice ? '' : props.invoice.customer.id);
+    const [customerId, setCustomerId] = useState(!props.invoice ? undefined : String(props.invoice.customer.id));
     const [amount, setAmount] = useState(!props.invoice ? '' : (props.invoice.amount / 100).toFixed(2));
     const [status, setStatus] = useState<InvoiceStatus>(!props.invoice ? 'pending' : props.invoice.status);
     const [issueDate, setIssueDate] = useState(!props.invoice ? '' : props.invoice.issueDate);
@@ -40,8 +41,13 @@ export default function InvoiceForm(props: InvoiceFormProps) {
 
         <div className = 'field'>
             <label htmlFor='customer'>Cliente</label>
-            <select id='customer' value={customerId} onChange={(event) => setCustomerId(event.target.value)}>
-                <option>
+            <select 
+            id='customer' 
+            value={customerId} 
+            onChange={(event) => setCustomerId(event.target.value)}
+            required
+            >
+                <option value=''>
                     Selecione um cliente
                 </option>
                 {props.customers.map((customer) => {
@@ -96,7 +102,7 @@ export default function InvoiceForm(props: InvoiceFormProps) {
         </div>
         
 
-        {!props.error ? null : <p className='form-error'>{props.error}</p>}
+        
 {/* ///////////////////////precisa ser mexido */}
         <div className='form-actions'>
             {!props.invoice ? null : 
@@ -136,5 +142,12 @@ export default function InvoiceForm(props: InvoiceFormProps) {
             onClick={props.confirm}
             >Sim</button>
         </div>}
-    </form>
+
+        {!props.error ? null : <p className='form-error'>{props.error}</p>}
+        {props.fieldErrors.customerId && <p className='form-error'>{props.fieldErrors.customerId}</p>}
+        {props.fieldErrors.amount && <p className='form-error'>{props.fieldErrors.amount}</p>}
+        {props.fieldErrors.status && <p className='form-error'>{props.fieldErrors.status}</p>}
+        {props.fieldErrors.issueDate && <p className='form-error'>{props.fieldErrors.issueDate}</p>}
+        {props.fieldErrors.dueDate && <p className='form-error'>{props.fieldErrors.dueDate}</p>}
+    </form>;
 }
