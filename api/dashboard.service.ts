@@ -1,7 +1,8 @@
 import  pool from './database.ts';
 
+import type { InvoiceStatus } from './invoice.schema.ts';
+
 import {type Invoice,
-        type InvoiceStatus,
         findRecentInvoices,
         findOverdueInvoices
     } from './invoice.service.ts';

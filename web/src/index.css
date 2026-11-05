@@ -251,6 +251,11 @@ form {
   flex-grow: 1;
 }
 
+.form-error{
+  font-size: var(--text-sm);
+  color: var(--color-overdue);
+}
+
 input, select, button{
   font-family: inherit;
   font-size: var(--text-base);
