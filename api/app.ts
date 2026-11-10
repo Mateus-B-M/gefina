@@ -5,7 +5,7 @@ import express from 'express';
 import path from 'node:path';
 import  fs  from 'node:fs';
 
-import pool from './database.ts';
+import prisma from './prisma.ts';
 
 import invoices from './invoice.route.ts';
 import customers from './customer.route.ts' /////////////////////////////////////////////////////////////////
@@ -24,19 +24,18 @@ app.use((request, _response, next) => {             //middleware
        //end point   ,         função
 app.get('/api/health', async (_request, response) => {
   try {
-    const connect = await pool.query('SELECT datname FROM pg_database WHERE oid = 5;');
-  
-    response.status(200).json({
-      status: 'Server is running.',
-      database: connect.rows[0].datname
+    await prisma.$queryRaw`SELECT 1;`
+    response.status(200).json({ 
+      status: 'Server is running',
+      database:'Database available'
     });
   } catch (error) {
     console.error(error);
 
     response.status(500).json({
-      status: 'Server is running.',
-      database: 'unvaliable'
-    });
+      status: 'Server is running',
+      message: 'Database unavaliable'
+    })
   }
 });
 
