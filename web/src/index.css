@@ -28,12 +28,12 @@
   --text-lg: 1.25rem;
   --text-xl: 1.5rem;
 
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
 
   --sidebar-width: 240px;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -41,52 +41,52 @@
   box-sizing: border-box;
 }
 
-body{
-    background-color: var(--color-background);
-    color: var(--color-text);
-    font-size: var(--text-base);
-    font-family: var(--font-sans);
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-size: var(--text-base);
+  font-family: var(--font-sans);
 }
 
-h1{
+h1 {
   font-size: var(--text-xl);
   font-weight: 600;
-  margin-bottom:var(--space-6);
+  margin-bottom: var(--space-6);
 }
-h2{
+h2 {
   font-size: var(--text-lg);
   font-weight: 600;
-  margin-bottom:var(--space-3);
+  margin-bottom: var(--space-3);
 }
-th{
+th {
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-text-muted);
   text-align: left;
 }
-a{
+a {
   color: var(--color-primary);
 }
-.sidebar{
+.sidebar {
   position: fixed;
   width: var(--sidebar-width);
   top: 0;
   bottom: 0;
   display: flex;
   flex-direction: column;
-  gap:var(--space-8);
-  padding:var(--space-6);
+  gap: var(--space-8);
+  padding: var(--space-6);
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
 }
-.brand{
+.brand {
   font-size: var(--text-xl);
   font-weight: 600;
 }
-.menu ul{
-  display:flex;
+.menu ul {
+  display: flex;
   flex-direction: column;
-  gap:var(--space-1);
+  gap: var(--space-1);
 }
 .menu a {
   display: block;
@@ -94,8 +94,9 @@ a{
   color: var(--color-text-muted);
   border-radius: var(--radius-control);
 }
-.menu a:hover, 
-.menu a:focus-visible, 
+
+.menu a:hover,
+.menu a:focus-visible,
 .menu a.active {
   background-color: var(--color-surface-raised);
   color: var(--color-text);
@@ -104,43 +105,20 @@ a{
 
 .menu a:focus-visible {
   outline: 2px solid var(--color-primary);
-  outline-offset: 2px; 
+  outline-offset: 2px;
 }
 
-.content{
+.content {
   margin-left: var(--sidebar-width);
-  padding:var(--space-8);
+  padding: var(--space-8);
 }
-.summary-cards{
+
+.summary-cards {
   display: flex;
   gap: var(--space-4);
 }
-/* MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM*/
-/* falta arredondar borda e espaçar o bottom */
 
 .card {
-  flex-grow:1;
-  flex-basis:0;
-  padding: var(--space-4);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-surface);
-}
-.card-label{
-  margin-bottom: var(--space-2);
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-}
-.card-value{
-  font-size: var(--text-xl);
-  font-weight: 600;
-}
-.summary-tables{
-  display:flex;
-  gap: var(--space-6);
-  margin-top: var(--space-8);
-}
-.panel{
   flex-grow: 1;
   flex-basis: 0;
   padding: var(--space-4);
@@ -148,115 +126,71 @@ a{
   border: 1px solid var(--color-border);
   border-radius: var(--radius-surface);
 }
-table{
+
+.card-label {
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.card-value {
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
+
+.summary-tables {
+  display: flex;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.panel {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: var(--space-4);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-surface);
+}
+
+table {
   width: 100%;
   border-collapse: collapse;
 }
-th, td {
+
+th,
+td {
   border-bottom: 1px solid var(--color-border);
   padding: var(--space-3);
 }
 
-.td-button{
+.td-button {
   text-align: center;
 }
 
 .numeric {
   font-variant-numeric: tabular-nums;
 }
-.numeric-date{
+
+.numeric-date {
   text-align: center;
 }
-.situation-paid{
-color:var(--color-paid);
-}
-.situation-pending{
-color:var(--color-pending);
-}
-.situation-overdue{
-color:var(--color-overdue);
+
+.situation-paid {
+  color: var(--color-paid);
 }
 
-.page-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--space-6);
+.situation-pending {
+  color: var(--color-pending);
 }
 
-.page-header h1{
-  margin-bottom: 0;
-}
-
-.invoice-modal{
-  width: 720px;
-  padding: var(--space-6);
-  background-color: var(--color-surface);
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-dialog);
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-  margin: auto;
-}
-
-.invoice-modal::backdrop{
-  background-color: var(--color-background-backdrop);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-.field{
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  width: 100%;
-}
-
-.field label{
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-
-}
-
-.horizontal-fields{
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-2);
-  margin-bottom: var(--space-6);
-}
-
-.form-actions{
-  display: flex;
-  justify-content: end;
-  gap: var(--space-2);
-}
-
-.form-actions button{
-  width: 100%;
-}
-
-.confirm-form{
-  display:flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-/* deixa os botoes em bom tamanho, ocupando todo o espaço e alinhado à margem */
-.confirm-form button{ 
-  flex-grow: 1;
-}
-
-.form-error{
-  font-size: var(--text-sm);
+.situation-overdue {
   color: var(--color-overdue);
 }
 
-input, select, button{
+input,
+select,
+button {
   font-family: inherit;
   font-size: var(--text-base);
   border-radius: var(--radius-control);
@@ -269,7 +203,8 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
-input, select{
+input,
+select {
   padding: var(--space-2) var(--space-3);
   background-color: var(--color-surface-raised);
   color: var(--color-text);
@@ -277,29 +212,107 @@ input, select{
 }
 
 button {
-    padding: var(--space-2) var(--space-4);
-    border: 1px solid transparent;
-    cursor: pointer;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid transparent;
+  cursor: pointer;
 }
 
-button disabled{
-  cursor: default;
+button:disabled {
+  cursor: progress;
   opacity: 0.75;
 }
 
-.button-primary{
+.button-primary {
   color: var(--color-text);
   background-color: var(--color-primary);
 }
 
-.button-secondary{
+.button-secondary {
   background-color: transparent;
   color: var(--color-text);
   border-color: var(--color-border);
 }
 
-.button.danger{
+.button.danger {
   background-color: transparent;
   color: var(--color-overdue);
   border-color: var(--color-overdue);
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+.page-header h1 {
+  margin-bottom: 0;
+}
+
+.invoice-modal {
+  width: 720px;
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-dialog);
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  margin: auto;
+}
+
+.invoice-modal::backdrop {
+  background-color: var(--color-background-backdrop);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+}
+
+.field label {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.horizontal-fields {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: end;
+  gap: var(--space-2);
+}
+
+.form-actions button {
+  width: 100%;
+}
+
+.confirm-form {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* deixa os botoes em bom tamanho, ocupando todo o espaço e alinhado à margem */
+.confirm-form button {
+  flex-grow: 1;
+}
+
+.form-error {
+  font-size: var(--text-sm);
+  color: var(--color-overdue);
 }

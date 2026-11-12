@@ -4,7 +4,7 @@
   "description": "Sistema de Gestão de Contas a receber.",
   "author": "Mateus de Brito",
   "scripts": {
-    "check": "biomejs/biome ./",
+    "check": "biome check ./",
     "fix": "biome check --write ./",
     "fix:unsafe": "biome check --write --unsafe ./"
   },
