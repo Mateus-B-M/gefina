@@ -1,7 +1,6 @@
-import {createRoot} from 'react-dom/client';
-import InvoicePage from './InvoicePage.tsx';
+import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 
-const root =document.querySelector('div');
+const root = document.querySelector('div');
 
-if (root !==null ) createRoot(root).render(<App/>);
+if (root !== null) createRoot(root).render(<App />);

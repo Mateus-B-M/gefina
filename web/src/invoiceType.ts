@@ -1,7 +1,6 @@
 export type InvoiceStatus = 'paid' | 'pending';
 export type InvoiceSituation = 'pending' | 'paid' | 'overdue';
 
-
 interface Customer {
   id: number;
   name: string;
@@ -18,15 +17,15 @@ export interface Invoice {
   customer: Customer;
 }
 
-export interface InvoiceInput{
-  customerId: number,
-  amount: number,
-  status: InvoiceStatus,
-  issueDate: string,
-  dueDate: string
+export interface InvoiceInput {
+  customerId: number;
+  amount: number;
+  status: InvoiceStatus;
+  issueDate: string;
+  dueDate: string;
 }
 
-export interface InvoiceFieldErrors{
+export interface InvoiceFieldErrors {
   customerId?: string;
   amount?: string;
   status?: string;
@@ -34,7 +33,7 @@ export interface InvoiceFieldErrors{
   dueDate?: string;
 }
 
-export interface ApiFailure{
+export interface ApiFailure {
   message: string;
   fields: InvoiceFieldErrors;
 }

@@ -1,5 +1,4 @@
 {
-    "prisma.pinToPrisma6": true,
-    "editor.minimap.autohide": "scroll"
+  "prisma.pinToPrisma6": true,
+  "editor.minimap.autohide": "scroll"
 }
-
