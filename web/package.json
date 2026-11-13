@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "test": "vitest run"
   },
   "devDependencies": {
     "@testing-library/react": "^16.3.3",
@@ -14,8 +15,8 @@
     "jsdom": "^29.1.1",
     "typescript": "^7.0.2",
     "vite": "^8.3.2",
-    "vitest": "^4.1.12",
-    "test": "vistest run"
+    "vitest": "^4.1.12"
+    
   },
   "dependencies": {
     "react": "^19.3.0",
