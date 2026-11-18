@@ -33,15 +33,19 @@ export default function DashboardPage() {
 
     getDashboard();
   }, []);
-  if (loading) return <p>Carregando faturas...</p>;
+  if (loading)
+    return <p className="text-sm text-text-muted">Carregando...</p>;
 
-  if (error || dashboard === null) return <p>{error}</p>;
+  if (error || dashboard === null)
+    return <p className="text-overdue">{error}</p>;
 
   return (
     <>
-      <h1>Painel Inicial</h1>
+      <h1 className="text-xl font-bold mb-7 uppercase text-center">
+        Painel Inicial
+      </h1>
 
-      <div className="summary-cards">
+      <div className="flex gap-4">
         <SummaryCard
           label="Total Recebido:"
           value={formatCurrency(dashboard.totals.paid)}
@@ -60,7 +64,7 @@ export default function DashboardPage() {
         />
       </div>
 
-      <div className="summary-tables">
+      <div className="flex gap-6 mt-8">
         <InvoiceSummaryTable
           title="Faturas recentes"
           dateLabel="Emissão"
@@ -74,6 +78,10 @@ export default function DashboardPage() {
           date={(invoice) => invoice.dueDate}
         />
       </div>
+
+      <small className="fixed bottom-0 left-[calc(50%+120px)] -translate-x-1/2">
+        &copy; 2026. Gefina - Gestor financeiro simples e eficiente.
+      </small>
     </>
   );
 }
