@@ -1,4 +1,6 @@
-:root {
+@import 'tailwindcss';
+
+@theme {
   --color-background: #0f1117;
   --color-background-backdrop: #0f111799;
   --color-surface: #171a21;
@@ -11,29 +13,20 @@
   --color-pending: #d29922;
   --color-overdue: #f85149;
 
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-12: 48px;
-
+  
   --radius-control: 6px;
   --radius-surface: 10px;
   --radius-dialog: 14px;
 
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
+  
   --text-lg: 1.25rem;
   --text-xl: 1.5rem;
 
   --font-sans: "Inter", system-ui, sans-serif;
 
-  --sidebar-width: 240px;
 }
 
-* {
+/* * {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -307,7 +300,7 @@ form {
   gap: var(--space-2);
 }
 
-/* deixa os botoes em bom tamanho, ocupando todo o espaço e alinhado à margem */
+ deixa os botoes em bom tamanho, ocupando todo o espaço e alinhado à margem 
 .confirm-form button {
   flex-grow: 1;
 }
@@ -316,3 +309,4 @@ form {
   font-size: var(--text-sm);
   color: var(--color-overdue);
 }
+*/
