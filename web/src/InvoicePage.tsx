@@ -138,7 +138,7 @@ export default function InvoicePage() {
       <header className="flex justify-between items-center mb-6">
         <h1 className="text-xl font-semibold">Faturas</h1>
         <button
-          className="bg-primary px-4 py-2 rounded-control cursor-pointer"
+          className="bg-primary px-4 py-2 rounded-control cursor-pointer focus-visible:outline-2 focus-visible:outline-primary"
           type="button"
           onClick={() => openModal(null)} //sem arrow func a funçao retorna void e não é aceito. Coloca-se uma func intermediária
         >
