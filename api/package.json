@@ -1,14 +1,14 @@
 {
   "type": "module",
   "scripts": {
-    "start": "node ./server.ts",
-    "dev": "node --watch --env-file=.env ./server.ts",
-    "check": "tsc --noEmit",
-    "test": "vitest run",
-    "postinstall": "prisma generate",
-    "seed": "node --env-file=.env ./prisma/seed.ts",
-    "migrate:deploy": "prisma migrate deploy"
-  },
+  "start": "node --env-file=.env --import tsx ./src/server.ts",
+  "dev": "node --watch --env-file=.env --import tsx ./src/server.ts",
+  "check": "tsc --noEmit",
+  "test": "vitest run",
+  "postinstall": "prisma generate",
+  "seed": "node --env-file=.env --import tsx ./prisma/seed.ts",
+  "migrate:deploy": "prisma migrate deploy"
+},
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^26.6.3",
@@ -16,6 +16,7 @@
     "@types/supertest": "^7.2.1",
     "prisma": "^6.19.3",
     "supertest": "^7.3.1",
+    "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vitest": "^4.1.12"
   },
